@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+
+  
+<div style="font-size:1.5em">
+<a href="#" (click)="enableOrder()" class="button5" role="button">Order</a>
+<a href="#" (click)="enableRestock()" class="button5" role="button">Restock</a>
+</div>
+
+
+<app-order [ProductList]="ProductList" (productEvent)="receiveOrder($event)" *ngIf="isOrderEnabled"></app-order>
+<app-restock [ProductList]="ProductList" (productEvent)="restockProduct($event)" *ngIf="isRestockEnabled"></app-restock>
+<router-outlet></router-outlet>
+
+
+  <div style="background-color: red" *ngIf="errorMessage">
+    <div  role="alert" id="ErrorMessage">
+      {{errorMessage}}
+    </div>
+  </div>
+
+   <div style="background-color: green" *ngIf="successMessage">
+   
+    <div role="alert" id="SuccessMessage">
+      {{successMessage}}
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+<div >
+  <h2>Restock Product:</h2>
+<hr />
+
+<div style="margin: 10px;">
+  <form (ngSubmit)="restockProduct()">
+    <div >
+      <div >
+      <label for="selectProduct" >Product type:</label>
+       <select name="selectProduct" [(ngModel)]="selectedRestockProduct">
+          <option *ngFor="let product of ProductList" [ngValue]="product" >{{product.name}}</option>
+       </select>
+      </div>
+
+      <div >
+      <label for="RestockQuantity" >Restock Quantity:   </label>
+      <input
+          [(ngModel)]="restockQuantity"
+          placeholder="Enter Quantity"
+          name="RestockQuantity"	
+          style="min-width: 150px;"
+        />
+      </div>
+
+
+      <div >
+        <button type="submit" style="Width:100px;">
+          Restock
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

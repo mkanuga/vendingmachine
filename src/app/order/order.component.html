@@ -1,0 +1,45 @@
+<div >
+  <h2>My Order:</h2>
+
+<hr />
+
+<div style="margin: 10px;">
+  <h3>Order your product</h3>
+  <form (ngSubmit)="orderProduct()">
+    <div>
+      <div>
+      <label for="selectProduct" >Product type:</label>
+       <select name="selectProduct" [(ngModel)]="selectedProduct">
+          <option *ngFor="let product of ProductList" [ngValue]="product" >{{product.name}}</option>
+       </select>
+      </div>
+
+      <div>
+      <label for="Quantity" >Quantity:</label>
+         <input
+          [(ngModel)]="quantity"
+          placeholder="Enter Quantity"
+          name="Quantity"
+          style="min-width: 150px;"
+        />
+      </div>
+
+      <div >
+      <label for="tenderMoney" >Cash:</label>
+         <input
+          [(ngModel)]="tenderedMoney"
+          value={{tenderedMoney}}
+          placeholder="Enter Cash"
+          name="tenderMoney"
+          style="min-width: 150px;"
+        />
+      </div>
+
+      <div>
+        <button type="submit" style="Width:90px;">
+          Order
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
